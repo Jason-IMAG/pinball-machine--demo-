@@ -1,4 +1,4 @@
-import Matter, { Vertices, World } from 'matter-js';
+import Matter, { World } from 'matter-js';
 import { useEffect, useRef } from 'react';
 
 
@@ -57,8 +57,8 @@ function App() {
       density: 0.001,
       render: { fillStyle: '#fffef4' }
     });
-  //發射器彈簧及物體
-  
+
+    //發射器彈簧及物體
     const rockOptions = { density: 0.004 };
     const rock = Bodies.circle(700, 480, 20, rockOptions);
     const anchor = { x: 700, y: 480 };
@@ -171,7 +171,7 @@ function App() {
                       strokeStyle: '#2980b9',
                       lineWidth: 1
                   },
-                  chamfer: { radius: 20 }
+                  chamfer: { radius: 20 }//圓滑程度
               }
           );
           
@@ -281,7 +281,7 @@ function App() {
 
     //碰撞偵測
 
-    //清理函數 避免渲染出兩個畫面
+    //清理函數 避免重複創建
     return () => {
 
       window.removeEventListener('keydown', handleKeyDown);
